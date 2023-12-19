@@ -1,0 +1,217 @@
+package ArrayMethods;
+import java.util.Scanner;
+
+public class UserLogic  {
+	static ArrayOperations ob= new ArrayOperations();
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in)	;
+		System.out.println("Enter the size of Array");
+		int size=sc.nextInt();
+		int a[]= new int[size];
+		for(int i=0;i<a.length;i++) {
+			System.out.println("Enter element : "+ (i+1));
+			a[i]=sc.nextInt();
+			
+		}
+		//boolean bool=true;
+		while(true) {
+			System.out.println("1: Insert");
+			System.out.println("2: InsertAll");
+			System.out.println("3: Update");
+			System.out.println("4: UpdateAll");
+			System.out.println("5: Delete");
+			System.out.println("6: DeleteAll");
+			System.out.println("7: FirstOccurance");
+			System.out.println("8: LastOccurance");
+			System.out.println("9: AscendingOrder");
+			System.out.println("10: DesendingOrder");
+			System.out.println("11: Minimum Element");
+			System.out.println("12: Maximum Element");
+			System.out.println("13: Sum");
+			System.out.println("14: Reverse");
+			System.out.println("15: Size");
+			System.out.println("16: Display");
+			System.out.println("17: IsEmpty");
+			System.out.println("18: Average");
+			System.out.println("19: Product");
+			System.out.println("20: occurance");
+			System.out.println("21: Clear");
+			System.out.println("22: Exit");
+			System.out.println("Choose Above Options");
+			int option =sc.nextInt();
+			switch(option) {
+			case 1: {
+				System.out.println("Enter new element ");
+				int ele= sc.nextInt();
+				System.out.println("Enter Position to be inserted: ");
+				int pos=sc.nextInt();
+				a=ob.insert(a, pos, ele);
+				ob.display(a);
+				break;
+			 }
+			case 2: {
+				System.out.println("Enter the number of Elements to be inserted");
+				int s1= sc.nextInt();
+				int b[]= new int[s1];
+				for(int i=0;i<s1;i++) {
+					System.out.println("Enter element : "+ (i+1));
+					b[i]=sc.nextInt();
+					
+				}
+				a=ob.insertAll(a,b);
+				ob.display(a);
+				break;
+			 }
+			case 3: {
+				System.out.println("Enter new element ");
+				int new_ele= sc.nextInt();
+				System.out.println("Enter old element ");
+				int old_ele= sc.nextInt();
+				ob.update(old_ele,a,new_ele);
+				ob.display(a);
+				break;
+			 }
+			case 4: {
+				System.out.println("Enter new element ");
+				int new_ele= sc.nextInt();
+				System.out.println("Enter old element ");
+				int old_ele= sc.nextInt();
+				ob.updateAll(old_ele,a,new_ele);
+				ob.display(a);
+				break;
+			 }
+			case 5: {
+				System.out.println("Enter element to be Deleted ");
+				int ele= sc.nextInt();
+				a=ob.delete(a,ele);
+				ob.display(a);
+				break;
+			 }
+			case 6: {
+				System.out.println("Enter element to be Deleted ");
+				int ele= sc.nextInt();
+				a=ob.deleteAll(a,ele);
+				ob.display(a);
+				break;
+			 }
+			case 7: {
+				System.out.println("Enter search element : ");
+				int ele= sc.nextInt();
+				int ind=ob.firstOccurance(a,ele);
+				if(ind==-1) {
+					System.out.println("Element Not present");
+					ob.display(a);
+					
+				}
+				else {
+					System.out.println(ind+1);
+					ob.display(a);
+				}
+				break;
+			 }
+			case 8: {
+				System.out.println("Enter element to know index value: ");
+				int ele= sc.nextInt();
+				int ind= ob.lastOccurance(a,ele);
+				if(ind==-1) {
+					System.out.println("Element Not present");
+					ob.display(a);
+					
+				}
+				else {
+					System.out.println(ind+1);
+					ob.display(a);
+				}
+				break;
+			 }
+			case 9: {
+				ob.sortAce(a);
+				ob.display(a);
+				break;
+			 }
+			case 10: {
+				ob.sortDes(a);
+				
+				break;
+			 }
+			case 11: {
+				System.out.println(ob.min(a));
+				ob.display(a);
+				break;
+			 }
+			case 12: {
+				System.out.println(ob.max(a));
+				ob.display(a);
+				break;
+			 }
+			case 13: {
+				System.out.println(ob.sum(a));
+				ob.display(a);
+				break;
+			 }
+			case 14: {
+				ob.display(a);
+				a=ob.reverse(a);
+				ob.display(a);
+				break;
+			 }
+			case 15: {
+				System.out.println(ob.size(a));
+				ob.display(a);
+				break;
+			 }
+			case 16: {
+				ob.display(a);
+				break;
+			 }
+			case 17: {
+				if(ob.isEmpty(a)) {
+					System.out.println("Array is Empty");
+				}
+				else {
+					System.out.println("Array is not Empty");
+				}
+				ob.display(a);
+				break;
+			 }
+			case 18: {
+				System.out.println(ob.avg(a));
+				ob.display(a);
+				break;
+			 }
+			case 19: {
+				System.out.println(ob.product(a));
+				ob.display(a);
+				break;
+			 }
+			case 20: {
+				System.out.println("Enter search element : ");
+				int ele= sc.nextInt();
+				int c= ob.occurance(a,ele);
+				System.out.println("Occurance : "+ c);
+				ob.display(a);
+				break;
+			 }
+			case 21: {
+				a=ob.clear();
+				ob.display(a);
+				break;
+			 }
+			case 22: {
+				//bool=false;
+				return;
+				//System.exit(0);// Entire Project is going to be terminated
+			 }
+			default:{
+				System.out.println("Invalid Option");
+			}
+			
+			
+			
+			}
+			
+		}
+		
+		
+	}
+}
